@@ -23,7 +23,7 @@ class App extends Component<{}, IState> {
       // data saves the server responds.
       // We use this state to parse data down to the child element (Graph) as element property
       data: [],
-      showGraph : false
+      showGraph : false,
     };
   }
 
@@ -45,7 +45,9 @@ class App extends Component<{}, IState> {
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
         // Update the state by creating a new array of data that consists of
         // Previous data in the state and the new data from server
-        this.setState({ data: serverResponds, showGraph : true,
+        this.setState({
+        data: serverResponds,
+        showGraph : true,
       });
     });
     x++;
@@ -71,7 +73,9 @@ class App extends Component<{}, IState> {
             // As part of your task, update the getDataFromServer() function
             // to keep requesting the data every 100ms until the app is closed
             // or the server does not return anymore data.
-            onClick={() => {this.getDataFromServer()}}>
+            onClick={() => {
+            this.getDataFromServer()
+            }}>
             Start Streaming Data
           </button>
           <div className="Graph">
